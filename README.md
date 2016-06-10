@@ -1,3 +1,9 @@
+# OSMTrailsFiltering
+
+Documentation for how we download OSM and extract trails, then crop to CPAD, for use as the trails overlay.
+
+# The Steps
+
 * Install the OSM utilities, if you haven't previously:
     sudo apt-get install osmctools osmosis
 
