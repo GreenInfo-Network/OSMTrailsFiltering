@@ -21,9 +21,15 @@ Documentation for how we download OSM and extract trails, then crop to CPAD, for
     Now you'll have lines.shp which are trails.
     There's also multilinestrings.shp but it's about 2% of the trails and isn't worth using.
 
-* Load the trails shapefile, and the current CPAD into QGIS.
-    Tip: Use Holdings. SuperUnits means fewer polygons, but much larger areas where spatial indexes don't work well.
+* Reproject CPAD Holdings into EPSG:4326 to match the OSM trails.
+    QGIS gives wonky results trying to do a Clip operation and also reprojecting.
+
+    ogr2ogr -t_srs epsg:4326 cpad.shp CPAD_2016a_Holdings.shp
+
+    Tip: Use CPAD Holdings. SuperUnits means fewer polygons, but much larger areas where spatial indexes don't work well.
     There are more Holdings but the spatial intersection is much more efficient.
+
+* Load the trails shapefile, and the current CPAD into QGIS.
 
 * Perform the clip, croppings trails to exist only within CPAD areas:
     Vector / Geoprocessing / Clip
