@@ -22,7 +22,8 @@ Documentation for how we download OSM and extract trails, then crop to CPAD, for
     There's also multilinestrings.shp but it's about 2% of the trails and isn't worth using.
 
 * Load the trails shapefile, and the current CPAD into QGIS.
-    Tip: SuperUnits means fewer polygons, so is more efficient.
+    Tip: Use Holdings. SuperUnits means fewer polygons, but much larger areas where spatial indexes don't work well.
+    There are more Holdings but the spatial intersection is much more efficient.
 
 * Perform the clip, croppings trails to exist only within CPAD areas:
     Vector / Geoprocessing / Clip
